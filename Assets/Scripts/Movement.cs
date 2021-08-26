@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    // Configuration
+    public float speed = 0.5f;
+
     // Movement vectors
     Vector3 horizontal;
     Vector3 vertical;
@@ -52,7 +55,7 @@ public class Movement : MonoBehaviour
         }
 
         // Movement
-        transform.position = transform.position + currentDirection * Time.deltaTime;
+        transform.position = transform.position + currentDirection * Time.deltaTime * speed;
 
         // Animation logic
         animator.SetInteger("Horizontal", (int) currentDirection.x);
