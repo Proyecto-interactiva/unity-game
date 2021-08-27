@@ -12,6 +12,9 @@ public class Movement : MonoBehaviour
     Vector3 vertical;
     Vector3 currentDirection;
     Vector3 prevDirection;
+
+    // Physics movement
+    public Rigidbody2D rb;
     
 
     // Animation components
@@ -55,12 +58,11 @@ public class Movement : MonoBehaviour
         }
 
         // Movement
-        transform.position = transform.position + currentDirection * Time.deltaTime * speed;
+        rb.velocity = new Vector2(currentDirection.x, currentDirection.y) * speed;
 
         // Animation logic
         animator.SetInteger("Horizontal", (int) currentDirection.x);
         animator.SetInteger("Vertical", (int) currentDirection.y);
-        Debug.Log($"{(int) currentDirection.x}, {(int) currentDirection.y}");
 
     }
 }
