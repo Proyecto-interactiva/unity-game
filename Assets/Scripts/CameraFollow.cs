@@ -57,15 +57,15 @@ public class CameraFollow : MonoBehaviour
 
         if (verticalCorrection != 0f)
         {
-            verticalCorrection = verticalCorrection + Mathf.Sign(verticalCorrection) * baseCorrectionSpeed;
+            verticalCorrection = (verticalCorrection + Mathf.Sign(verticalCorrection) * baseCorrectionSpeed) * Time.deltaTime;
         }
         if (horizontalCorrection != 0f)
         {
-            horizontalCorrection = horizontalCorrection + Mathf.Sign(horizontalCorrection) * baseCorrectionSpeed;
+            horizontalCorrection = (horizontalCorrection + Mathf.Sign(horizontalCorrection) * baseCorrectionSpeed) * Time.deltaTime;
         }
         
 
-        //Debug.Log($"hc: {horizontalCorrection}, vc: {verticalCorrection}, cp: ({playerScreenPos.x},{playerScreenPos.y})");
+        Debug.Log($"hc: {horizontalCorrection}, vc: {verticalCorrection}, cp: ({playerScreenPos.x},{playerScreenPos.y})");
 
         if (horizontalCorrection != 0f || verticalCorrection != 0f)
         {
