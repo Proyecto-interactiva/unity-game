@@ -14,8 +14,17 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void LogIn()
+    public bool LogIn(string email, string password)
     {
-        api.LogIn("email@test.com", "123456");
+        bool success = api.LogIn(email, password);
+        Debug.Log(success);
+        return success;
+    }
+
+    public bool Register(string name, string email, string password)
+    {
+        bool success = api.SignUp(name, email, password);
+        Debug.Log(success);
+        return success;
     }
 }

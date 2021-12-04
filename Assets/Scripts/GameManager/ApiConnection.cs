@@ -16,7 +16,7 @@ public class ApiConnection
     private string gameName = "game name";
     private string url = "https://fractal-interactiva.herokuapp.com";
 
-    public void LogIn(string email, string password)
+    public bool LogIn(string email, string password)
     {
         PlayerData playerData = new PlayerData();
         playerData.email = email;
@@ -30,14 +30,25 @@ public class ApiConnection
         Stream dataStream = request.GetRequestStream();
         dataStream.Write(bodyRaw, 0, bodyRaw.Length);
         dataStream.Close();
-        WebResponse response = request.GetResponse();
+        HttpWebResponse response;
+        try
+        {
+            response = (HttpWebResponse)request.GetResponse();
+        }
+        catch (Exception)
+        {
+            return false;
+        }
+        if (response.StatusCode != HttpStatusCode.OK) return false;
         StreamReader reader = new StreamReader(response.GetResponseStream());
         string JsonResponse = reader.ReadToEnd();
-
+        Debug.Log(response.StatusCode);
         Auth(email, password);
+        
+        return response.StatusCode == HttpStatusCode.OK;
     }
 
-    public void SignUp(string name, string email, string password)
+    public bool SignUp(string name, string email, string password)
     {
         PlayerData playerData = new PlayerData();
         playerData.name = name;
@@ -52,14 +63,25 @@ public class ApiConnection
         Stream dataStream = request.GetRequestStream();
         dataStream.Write(bodyRaw, 0, bodyRaw.Length);
         dataStream.Close();
-        WebResponse response = request.GetResponse();
+        HttpWebResponse response;
+        try
+        {
+            response = (HttpWebResponse)request.GetResponse();
+        }
+        catch (Exception)
+        {
+            return false;
+        }
+        if (response.StatusCode != HttpStatusCode.OK) return false;
         StreamReader reader = new StreamReader(response.GetResponseStream());
         string JsonResponse = reader.ReadToEnd();
-
+        
         Auth(email, password);
+
+        return response.StatusCode == HttpStatusCode.OK;
     }
 
-    private void Auth(string email, string password)
+    private bool Auth(string email, string password)
     {
         PlayerData playerData = new PlayerData();
         playerData.email = email;
@@ -74,13 +96,23 @@ public class ApiConnection
         Stream dataStream = request.GetRequestStream();
         dataStream.Write(bodyRaw, 0, bodyRaw.Length);
         dataStream.Close();
-        WebResponse response = request.GetResponse();
+        HttpWebResponse response;
+        try
+        {
+            response = (HttpWebResponse)request.GetResponse();
+        }
+        catch (Exception)
+        {
+            return false;
+        }
         StreamReader reader = new StreamReader(response.GetResponseStream());
         string JsonResponse = reader.ReadToEnd();
         Token info = JsonUtility.FromJson<Token>(JsonResponse);
         jwt = info.token;
         Debug.Log(jwt);
-}
+        Debug.Log(response.StatusCode);
+        return response.StatusCode == HttpStatusCode.OK;
+    }
 
     public void newSave()
     {
