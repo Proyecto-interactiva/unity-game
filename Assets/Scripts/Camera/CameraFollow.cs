@@ -65,7 +65,7 @@ public class CameraFollow : MonoBehaviour
         }
         
 
-        Debug.Log($"hc: {horizontalCorrection}, vc: {verticalCorrection}, cp: ({playerScreenPos.x},{playerScreenPos.y})");
+        //Debug.Log($"hc: {horizontalCorrection}, vc: {verticalCorrection}, cp: ({playerScreenPos.x},{playerScreenPos.y})");
 
         if (horizontalCorrection != 0f || verticalCorrection != 0f)
         {

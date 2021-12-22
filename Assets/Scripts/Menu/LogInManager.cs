@@ -1,0 +1,51 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
+
+public class LogInManager : MonoBehaviour
+{
+    public GameObject email;
+    public GameObject password;
+    private TMP_InputField emailInputField;
+    private TMP_InputField passwordInputField;
+    private string specificUri = "/sign/in-user";
+    GameManager gameManager;
+
+    
+    void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+        emailInputField = email.GetComponent<TMP_InputField>();
+        passwordInputField = password.GetComponent<TMP_InputField>();
+    }
+
+    public void Back()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void LogIn()
+    {
+        // do the login
+        WWWForm form = new WWWForm();
+        form.AddField("email", emailInputField.text);
+        form.AddField("password", passwordInputField.text);
+        Debug.Log("Executing login post");
+        StartCoroutine(gameManager.PostForm(specificUri, form, SuccessLogInFallBack, ErrorLogInFallBack));
+
+    }
+
+    private void SuccessLogInFallBack()
+    {
+        SceneManager.LoadScene("Play Menu");
+    }
+
+    private void ErrorLogInFallBack()
+    {
+        emailInputField.text = "";
+        passwordInputField.text = "";
+        // Error alert
+    }
+}

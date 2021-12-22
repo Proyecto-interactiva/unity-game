@@ -1,0 +1,55 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
+
+public class RegisterManager : MonoBehaviour
+{
+    public GameObject username;
+    public GameObject email;
+    public GameObject password;
+    private TMP_InputField usernameInputField;
+    private TMP_InputField emailInputField;
+    private TMP_InputField passwordInputField;
+    private string uri = "/sign/up";
+
+    GameManager gameManager;
+    // Start is called before the first frame update
+    void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+        usernameInputField = username.GetComponent<TMP_InputField>();
+        emailInputField = email.GetComponent<TMP_InputField>();
+        passwordInputField = password.GetComponent<TMP_InputField>();
+    }
+
+    public void Back()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void Register()
+    {
+        // do the registration
+        WWWForm form = new WWWForm();
+        form.AddField("name", usernameInputField.text);
+        form.AddField("email", emailInputField.text);
+        form.AddField("password", passwordInputField.text);
+        Debug.Log("Executing Register post");
+        StartCoroutine(gameManager.PostForm(uri, form, SuccessRegisterFallBack, ErrorRegisterFallBack));
+    }
+
+    private void SuccessRegisterFallBack()
+    {
+        SceneManager.LoadScene("Play Menu");
+    }
+
+    private void ErrorRegisterFallBack()
+    {
+        usernameInputField.text = "";
+        emailInputField.text = "";
+        passwordInputField.text = "";
+        // Error alert
+    }
+}
