@@ -10,6 +10,7 @@ public class LogInManager : MonoBehaviour
     public GameObject password;
     private TMP_InputField emailInputField;
     private TMP_InputField passwordInputField;
+    private string specificUri = "/sign/in-user";
     GameManager gameManager;
 
     
@@ -28,15 +29,23 @@ public class LogInManager : MonoBehaviour
     public void LogIn()
     {
         // do the login
-        if(gameManager.LogIn(emailInputField.text, passwordInputField.text))
-        {
-            SceneManager.LoadScene("Play Menu");
-        }
-        else
-        {
-            //Do something to alert that something is wrong
-            emailInputField.text = "";
-            passwordInputField.text = "";
-        }
+        WWWForm form = new WWWForm();
+        form.AddField("email", emailInputField.text);
+        form.AddField("password", passwordInputField.text);
+        Debug.Log("Executing login post");
+        StartCoroutine(gameManager.PostForm(specificUri, form, SuccessLogInFallBack, ErrorLogInFallBack));
+
+    }
+
+    private void SuccessLogInFallBack()
+    {
+        SceneManager.LoadScene("Play Menu");
+    }
+
+    private void ErrorLogInFallBack()
+    {
+        emailInputField.text = "";
+        passwordInputField.text = "";
+        // Error alert
     }
 }

@@ -12,6 +12,7 @@ public class RegisterManager : MonoBehaviour
     private TMP_InputField usernameInputField;
     private TMP_InputField emailInputField;
     private TMP_InputField passwordInputField;
+    private string uri = "/sign/up";
 
     GameManager gameManager;
     // Start is called before the first frame update
@@ -31,16 +32,24 @@ public class RegisterManager : MonoBehaviour
     public void Register()
     {
         // do the registration
-        if (gameManager.Register(usernameInputField.text, emailInputField.text, passwordInputField.text))
-        {
-            SceneManager.LoadScene("Play Menu");
-        }
-        else
-        {
-            //Do something to alert that something is wrong
-            usernameInputField.text = "";
-            emailInputField.text = "";
-            passwordInputField.text = "";
-        }
+        WWWForm form = new WWWForm();
+        form.AddField("name", usernameInputField.text);
+        form.AddField("email", emailInputField.text);
+        form.AddField("password", passwordInputField.text);
+        Debug.Log("Executing Register post");
+        StartCoroutine(gameManager.PostForm(uri, form, SuccessRegisterFallBack, ErrorRegisterFallBack));
+    }
+
+    private void SuccessRegisterFallBack()
+    {
+        SceneManager.LoadScene("Play Menu");
+    }
+
+    private void ErrorRegisterFallBack()
+    {
+        usernameInputField.text = "";
+        emailInputField.text = "";
+        passwordInputField.text = "";
+        // Error alert
     }
 }
