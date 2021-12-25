@@ -8,9 +8,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private string jwt;
-    private string username;
-    private string gameName = "Test1";
-    private string stageId;
+    private string userName;
+    private string gameName = "Test5";
+    private int stageId = 0;
     private string generalUri = "https://fractal-interactiva.herokuapp.com/api";
 
     private void Awake()
@@ -35,7 +35,9 @@ public class GameManager : MonoBehaviour
             else
             {
                 Debug.Log("Form upload complete!");
-                //Debug.Log(myObject);
+                var json = www.downloadHandler.text;
+                var playerData = JsonUtility.FromJson<PlayerData>(json);
+                userName = playerData.name;
                 StartCoroutine(Auth(form, FallbackSuccess, FallbackError));
 
             }
@@ -69,36 +71,41 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public IEnumerator NextMessage(int characterId)
+    public IEnumerator NextMessage(int characterId, Action<MessagesResponse> CallBackSuccess, Action CallbackError)
     {
-        using (UnityWebRequest www = UnityWebRequest.Get($"{generalUri}/game/messages?username={username}&gameName={gameName}&stageId={stageId}&character={characterId}"))
+        using (UnityWebRequest www = UnityWebRequest.Get($"{generalUri}/game/messages?username={userName}&gameName={gameName}&stageId={stageId}&character={characterId}"))
         {
             Debug.Log("Next messages requested");
+            www.SetRequestHeader("Authorization", $"Bearer {jwt}");
             yield return www.SendWebRequest();
 
             if (www.result != UnityWebRequest.Result.Success)
             {
                 Debug.Log("Error");
                 Debug.Log(www.error);
+
+                CallbackError();
             }
             else
             {
                 Debug.Log("Messages received!");
                 var json = www.downloadHandler.text;
-                var response = JsonUtility.FromJson<Token>(json);
-
+                var response = JsonUtility.FromJson<MessagesResponse>(json);
+                Debug.Log(response);
+                CallBackSuccess(response);
             }
         }
     }
 
-    public IEnumerator newSave(string userName)
+    public IEnumerator newSave(Action<Save> CallbackSuccess, Action CallbackError)
     {
         WWWForm form = new WWWForm();
         form.AddField("gameName", gameName);
-        form.AddField("usernName", userName);
-        using (UnityWebRequest www = UnityWebRequest.Post($"{generalUri}/game/new", form))
+        form.AddField("userName", userName);
+        using (UnityWebRequest www = UnityWebRequest.Post($"{generalUri}/game/newEmpty", form))
         {
             Debug.Log("Creating new save");
+            www.SetRequestHeader("Authorization", $"Bearer {jwt}");
             yield return www.SendWebRequest();
 
             if (www.result != UnityWebRequest.Result.Success)
@@ -110,8 +117,33 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log("New save created!");
                 var json = www.downloadHandler.text;
-                var response = JsonUtility.FromJson<Token>(json);
+                var save = JsonUtility.FromJson<Save>(json);
+                CallbackSuccess(save);
 
+            }
+        }
+    }
+
+    public IEnumerator getSave(Action<Save> CallbackSuccess, Action CallbackError)
+    {
+        using (UnityWebRequest www = UnityWebRequest.Get($"{generalUri}/game?userName={userName}"))
+        {
+            Debug.Log("Creating new save");
+            www.SetRequestHeader("Authorization", $"Bearer {jwt}");
+            yield return www.SendWebRequest();
+
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log("Error");
+                Debug.Log(www.error);
+                CallbackError();
+            }
+            else
+            {
+                Debug.Log("Save found!");
+                var json = www.downloadHandler.text;
+                var save = JsonUtility.FromJson<Save>(json);
+                CallbackSuccess(save);
             }
         }
     }

@@ -30,7 +30,7 @@ public class Token
 
 public class Save
 {
-    public string username;
+    public string userName;
     public List<Stage> stages;
 
     public class Stage
@@ -54,6 +54,8 @@ public class Save
         }
     }
 }
+
+
 
 
 
