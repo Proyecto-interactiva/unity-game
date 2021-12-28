@@ -9,6 +9,7 @@ public class Talk : MonoBehaviour
     public GameObject messageDisplay;
     // Start is called before the first frame update
     public int characterId;
+    private bool answersToShow = false;
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -23,8 +24,16 @@ public class Talk : MonoBehaviour
     public void Interact()
     {
         //Get next messages
-        StartCoroutine(gameManager.NextMessage(characterId, ManageMessages, ManageError));
-        
+        if (answersToShow)
+        {
+            // Do you want to send othe answers?
+            // Send answers
+            // Callback shows feedback
+        }
+        else
+        {
+            StartCoroutine(gameManager.NextMessage(characterId, ManageMessages, ManageError));
+        }
     }
 
     public void ManageMessages(MessagesResponse response)
@@ -33,6 +42,15 @@ public class Talk : MonoBehaviour
         messageDisplay.SetActive(true);
         messageDisplay.GetComponent<messagesDisplay>().ShowMessages(response.dialogs);
         // spawn items in the world
+        if (response.quest)
+        {
+            gameManager.SpawnBooks(response.answers);
+        }
+        else
+        {
+            StartCoroutine(gameManager.NextMessage(characterId, ManageMessages, ManageError));
+        }
+        
     }
 
     public void ManageError()
