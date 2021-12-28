@@ -6,14 +6,12 @@ public class MessagesResponse
 {
     public List<string> dialogs;
     public bool quest;
-    public List<Answer> answers;
+    public List<string> answers;
 }
 
 public class Answer
 {
     public string content;
-    public bool correct;
-    public int score; // may be float
 }
 
 public class PlayerData
