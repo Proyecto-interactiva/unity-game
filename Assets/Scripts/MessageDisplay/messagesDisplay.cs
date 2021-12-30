@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class messagesDisplay : MonoBehaviour
+public class MessagesDisplay : MonoBehaviour
 {
 
     public TMP_Text messageDisplay;
@@ -32,6 +32,7 @@ public class messagesDisplay : MonoBehaviour
 
     public void ShowMessages(List<string> messages)
     {
+        this.gameObject.SetActive(true);
         this.messages = messages;
         Debug.Log(this.messages);
         Debug.Log(this.messages.Count);

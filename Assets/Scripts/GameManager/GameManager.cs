@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     private string jwt;
     private string userName;
-    private string gameName = "Test6";
+    private string gameName = "Test9";
     private int stageId = 0;
     private string generalUri = "https://fractal-interactiva.herokuapp.com/api";
     public GameObject bookPrefab;
@@ -98,9 +98,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public IEnumerator PostAnswer(WWWForm form, int characterId, Action<MessagesResponse> CallBackSuccess, Action CallbackError)
+    public IEnumerator PostAnswer(WWWForm form, int characterId, Action<FeedbackResponse> CallBackSuccess, Action CallbackError)
     {
-        using (UnityWebRequest www = UnityWebRequest.Post($"{generalUri}/game/messages?userName={userName}&gameName={gameName}&stageId={stageId}&character={characterId}", form))
+        using (UnityWebRequest www = UnityWebRequest.Post($"{generalUri}/game/answer?userName={userName}&gameName={gameName}&stageId={stageId}&character={characterId}", form))
         {
             Debug.Log("Posting answers");
             www.SetRequestHeader("Authorization", $"Bearer {jwt}");
@@ -117,7 +117,7 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log("Answers posted!");
                 var json = www.downloadHandler.text;
-                var response = JsonUtility.FromJson<MessagesResponse>(json);
+                var response = JsonUtility.FromJson<FeedbackResponse>(json);
                 Debug.Log(response);
                 CallBackSuccess(response);
             }
@@ -182,7 +182,7 @@ public class GameManager : MonoBehaviour
         foreach (string answer in answers)
         {
             SpawnBook(answer, x, 9, type);
-            x++;
+            x+= 3;
             type++;
             if (type > 5) type = 1;
         }

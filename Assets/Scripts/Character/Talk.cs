@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,9 +8,10 @@ public class Talk : MonoBehaviour
 
     GameManager gameManager;
     public GameObject messageDisplay;
+    public GameObject confirmatioBox;
     // Start is called before the first frame update
     public int characterId;
-    private bool answersToShow = false;
+    public bool questMode = false;
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -24,31 +26,25 @@ public class Talk : MonoBehaviour
     public void Interact()
     {
         //Get next messages
-        if (answersToShow)
-        {
-            // Do you want to send othe answers?
-            // Send answers
-            // Callback shows feedback
-        }
-        else
-        {
-            StartCoroutine(gameManager.NextMessage(characterId, ManageMessages, ManageError));
-        }
+        StartCoroutine(gameManager.NextMessage(characterId, ManageMessages, ManageError));
+    }
+
+    public void Submit()
+    {
+        confirmatioBox.GetComponent<confirmationBox>().Show(characterId);
+
     }
 
     public void ManageMessages(MessagesResponse response)
     {
         //show message in message display
-        messageDisplay.SetActive(true);
-        messageDisplay.GetComponent<messagesDisplay>().ShowMessages(response.dialogs);
+        messageDisplay.GetComponent<MessagesDisplay>().ShowMessages(response.dialogs);
         // spawn items in the world
-        if (response.quest)
+        if (response.quest && !questMode)
         {
             gameManager.SpawnBooks(response.answers);
-        }
-        else
-        {
-            StartCoroutine(gameManager.NextMessage(characterId, ManageMessages, ManageError));
+            questMode = true;
+            ShowSubmit();
         }
         
     }
@@ -57,5 +53,15 @@ public class Talk : MonoBehaviour
     {
         Debug.Log("Messages failed to load");
         StartCoroutine(gameManager.NextMessage(characterId, ManageMessages, ManageError));
+    }
+
+    internal void HideSubmit()
+    {
+        gameObject.transform.Find("InteractionCanvas").Find("SubmitButton").gameObject.SetActive(false);
+    }
+
+    internal void ShowSubmit()
+    {
+        gameObject.transform.Find("InteractionCanvas").Find("SubmitButton").gameObject.SetActive(true);
     }
 }

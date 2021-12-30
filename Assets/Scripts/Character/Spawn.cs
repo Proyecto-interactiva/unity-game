@@ -13,12 +13,12 @@ public class Spawn : MonoBehaviour
         {
             spawned = true;
             transform.Find("CharacterSprite").gameObject.SetActive(true);
-            transform.Find("TalkButtonCanvas").gameObject.SetActive(true);
+            transform.Find("InteractionCanvas").gameObject.SetActive(true);
         }
     }
 
     private void OnTriggerExit2D(Collider2D entity)
     {
-        transform.Find("TalkButtonCanvas").gameObject.SetActive(false);
+        transform.Find("InteractionCanvas").gameObject.SetActive(false);
     }
 }
