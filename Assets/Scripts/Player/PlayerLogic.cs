@@ -7,7 +7,7 @@ public class PlayerLogic : MonoBehaviour
     public Inventory inventory;
     [SerializeField] private UiInventory uiInventory;
 
-    private void Awake()
+    private void Start()
     {
         inventory = new Inventory();
         uiInventory.SetInventory(inventory);

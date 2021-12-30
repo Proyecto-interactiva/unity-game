@@ -33,4 +33,10 @@ public class Inventory
     {
         return itemList;
     }
+
+    public void Clear()
+    {
+        itemList.Clear();
+        Updated?.Invoke();
+    }
 }

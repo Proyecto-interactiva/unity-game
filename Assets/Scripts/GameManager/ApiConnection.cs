@@ -9,6 +9,12 @@ public class MessagesResponse
     public List<string> answers;
 }
 
+public class FeedbackResponse
+{
+    public string feedbackMessage;
+    public bool progress;
+}
+
 public class Answer
 {
     public string content;
