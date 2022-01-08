@@ -38,9 +38,18 @@ public class Talk : MonoBehaviour
     public void ManageMessages(MessagesResponse response)
     {
         //show message in message display
-        messageDisplay.GetComponent<MessagesDisplay>().ShowMessages(response.dialogs);
+        if (!response.lastScene)
+        {
+            messageDisplay.GetComponent<MessagesDisplay>().ShowMessages(response.dialogs);
+        }
+        else
+        {
+            // Display last message and then game over.
+            messageDisplay.GetComponent<MessagesDisplay>().ShowLastMessage(response.dialogs);
+        }
+        
         // spawn items in the world
-        if (response.quest && !questMode)
+        if (response.quest && !questMode && !response.lastScene)
         {
             gameManager.SpawnBooks(response.answers);
             questMode = true;

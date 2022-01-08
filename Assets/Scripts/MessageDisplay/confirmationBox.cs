@@ -37,7 +37,7 @@ public class confirmationBox : MonoBehaviour
             answers += item.content + ";";
         }
         Debug.Log(answers);
-        answers = answers.Remove(answers.Length - 1);
+        if (answers.Length > 0) answers = answers.Remove(answers.Length - 1);
         form = new WWWForm();
         form.AddField("answers", answers);
     }

@@ -6,8 +6,9 @@ using TMPro;
 
 public class MessagesDisplay : MonoBehaviour
 {
-
+    bool lastMessage = false;
     public TMP_Text messageDisplay;
+    public GameOverDisplay gameOverDisplay;
     List<string> messages;
     int currentMessageIndex = -1;
     // Start is called before the first frame update
@@ -48,6 +49,7 @@ public class MessagesDisplay : MonoBehaviour
         else
         {
             HideDisplay();
+            if (lastMessage) gameOverDisplay.Show();
         }
     }
 
@@ -56,6 +58,16 @@ public class MessagesDisplay : MonoBehaviour
         currentMessageIndex = -1;
         messages.Clear();
         this.gameObject.SetActive(false);
+    }
+
+    public void ShowLastMessage(List<string> messages)
+    {
+        lastMessage = true;
+        this.gameObject.SetActive(true);
+        this.messages = messages;
+        Debug.Log(this.messages);
+        Debug.Log(this.messages.Count);
+        nextMessage();
     }
 
 

@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     private string jwt;
     private string userName;
-    private string gameName = "Test9";
+    private string gameName = "Test10";
     private int stageId = 0;
     private string generalUri = "https://fractal-interactiva.herokuapp.com/api";
     public GameObject bookPrefab;

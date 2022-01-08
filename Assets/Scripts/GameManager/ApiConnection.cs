@@ -7,6 +7,7 @@ public class MessagesResponse
     public List<string> dialogs;
     public bool quest;
     public List<string> answers;
+    public bool lastScene;
 }
 
 public class FeedbackResponse
