@@ -14,7 +14,9 @@ public class Spawn : MonoBehaviour
             spawned = true;
             transform.Find("CharacterSprite").gameObject.SetActive(true);
             transform.Find("InteractionCanvas").gameObject.SetActive(true);
+            FindObjectOfType<AudioManager>().Play("Open");
         }
+        
     }
 
     private void OnTriggerExit2D(Collider2D entity)

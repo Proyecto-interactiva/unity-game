@@ -44,11 +44,13 @@ public class confirmationBox : MonoBehaviour
 
     public void Accept()
     {
+        FindObjectOfType<AudioManager>().Play("Text");
         StartCoroutine(gameManager.PostAnswer(form, characterId, Success, Close));
     }
 
     public void Close()
     {
+        FindObjectOfType<AudioManager>().Play("Close");
         gameObject.SetActive(false);
         form = null;
     }

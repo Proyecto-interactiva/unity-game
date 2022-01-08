@@ -42,6 +42,7 @@ public class MessagesDisplay : MonoBehaviour
 
     public void nextMessage()
     {
+        FindObjectOfType<AudioManager>().Play("Text");
         if (currentMessageIndex + 1 < messages.Count)
         {
             currentMessageIndex++;

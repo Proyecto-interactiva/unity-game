@@ -12224,6 +12224,8 @@ GameObject:
   - component: {fileID: 1393034761}
   - component: {fileID: 1393034760}
   - component: {fileID: 1393034763}
+  - component: {fileID: 1393034764}
+  - component: {fileID: 1393034762}
   m_Layer: 0
   m_Name: PlayerSprite
   m_TagString: Untagged
@@ -12296,6 +12298,19 @@ Transform:
   m_Father: {fileID: 1070620163}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1393034762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393034759}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 395adabb5cdaa07459adb9deb9764d25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepAudio: {fileID: 1393034764}
 --- !u!95 &1393034763
 Animator:
   serializedVersion: 3
@@ -12315,6 +12330,102 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!82 &1393034764
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393034759}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 33d6ed92771027548a58b373232eab4d, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &1393264628 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5892931112973229283, guid: b1608febb75eb2745930f8220e44aa74, type: 3}
@@ -13835,6 +13946,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 220279ad698099243a0eda6332c9b47a, type: 3}
+--- !u!1001 &2995266465634950714
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2995266465853692036, guid: 67e51534f77cd814f888db08d2166026, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2995266465853692037, guid: 67e51534f77cd814f888db08d2166026, type: 3}
+      propertyPath: sounds.Array.data[0].name
+      value: Theme
+      objectReference: {fileID: 0}
+    - target: {fileID: 2995266465853692154, guid: 67e51534f77cd814f888db08d2166026, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2995266465853692154, guid: 67e51534f77cd814f888db08d2166026, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 574.9632
+      objectReference: {fileID: 0}
+    - target: {fileID: 2995266465853692154, guid: 67e51534f77cd814f888db08d2166026, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 297.9681
+      objectReference: {fileID: 0}
+    - target: {fileID: 2995266465853692154, guid: 67e51534f77cd814f888db08d2166026, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.6311119
+      objectReference: {fileID: 0}
+    - target: {fileID: 2995266465853692154, guid: 67e51534f77cd814f888db08d2166026, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2995266465853692154, guid: 67e51534f77cd814f888db08d2166026, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2995266465853692154, guid: 67e51534f77cd814f888db08d2166026, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2995266465853692154, guid: 67e51534f77cd814f888db08d2166026, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2995266465853692154, guid: 67e51534f77cd814f888db08d2166026, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2995266465853692154, guid: 67e51534f77cd814f888db08d2166026, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2995266465853692154, guid: 67e51534f77cd814f888db08d2166026, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 67e51534f77cd814f888db08d2166026, type: 3}
 --- !u!1001 &5892931113981274039
 PrefabInstance:
   m_ObjectHideFlags: 0

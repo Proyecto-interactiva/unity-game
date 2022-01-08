@@ -24,6 +24,7 @@ public class GameOverDisplay : MonoBehaviour
 
     public void ExitGame()
     {
+        FindObjectOfType<AudioManager>().Play("Close");
         SceneManager.LoadScene("Menu");
     }
 }

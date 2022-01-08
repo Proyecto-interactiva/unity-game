@@ -12,6 +12,7 @@ public class PlayMenuManager : MonoBehaviour
     }
     public void Play()
     {
+        FindObjectOfType<AudioManager>().Play("Text");
         StartCoroutine(gameManager.getSave(saveLoadSuccess, saveLoadError));
     }
 

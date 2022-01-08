@@ -75,12 +75,14 @@ public class Item : MonoBehaviour
 
     public void PickItem()
     {
+        FindObjectOfType<AudioManager>().Play("Text");
         picker.inventory.AddItem(this);
         this.gameObject.SetActive(false);
     }
 
     public void DropItem()
     {
+        FindObjectOfType<AudioManager>().Play("Open");
         this.transform.position = picker.transform.position;
         this.gameObject.SetActive(true);
         
