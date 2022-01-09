@@ -26,11 +26,14 @@ public class RegisterManager : MonoBehaviour
 
     public void Back()
     {
+        FindObjectOfType<AudioManager>().Play("Text");
         SceneManager.LoadScene("Menu");
+
     }
 
     public void Register()
     {
+        FindObjectOfType<AudioManager>().Play("Text");
         // do the registration
         WWWForm form = new WWWForm();
         form.AddField("name", usernameInputField.text);
@@ -42,11 +45,13 @@ public class RegisterManager : MonoBehaviour
 
     private void SuccessRegisterFallBack()
     {
+        FindObjectOfType<AudioManager>().Play("Open");
         SceneManager.LoadScene("Play Menu");
     }
 
     private void ErrorRegisterFallBack()
     {
+        FindObjectOfType<AudioManager>().Play("Close");
         usernameInputField.text = "";
         emailInputField.text = "";
         passwordInputField.text = "";

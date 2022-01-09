@@ -14,6 +14,11 @@ public class Talk : MonoBehaviour
     public bool questMode = false;
     void Start()
     {
+        
+    }
+
+    private void Awake()
+    {
         gameManager = FindObjectOfType<GameManager>();
     }
 
@@ -27,20 +32,31 @@ public class Talk : MonoBehaviour
     {
         //Get next messages
         StartCoroutine(gameManager.NextMessage(characterId, ManageMessages, ManageError));
+        FindObjectOfType<AudioManager>().Play("Text");
     }
 
     public void Submit()
     {
         confirmatioBox.GetComponent<confirmationBox>().Show(characterId);
+        FindObjectOfType<AudioManager>().Play("Text");
 
     }
 
     public void ManageMessages(MessagesResponse response)
     {
         //show message in message display
-        messageDisplay.GetComponent<MessagesDisplay>().ShowMessages(response.dialogs);
+        if (!response.lastScene)
+        {
+            messageDisplay.GetComponent<MessagesDisplay>().ShowMessages(response.dialogs);
+        }
+        else
+        {
+            // Display last message and then game over.
+            messageDisplay.GetComponent<MessagesDisplay>().ShowLastMessage(response.dialogs);
+        }
+        
         // spawn items in the world
-        if (response.quest && !questMode)
+        if (response.quest && !questMode && !response.lastScene)
         {
             gameManager.SpawnBooks(response.answers);
             questMode = true;

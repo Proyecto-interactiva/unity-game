@@ -7,11 +7,13 @@ public class MainMenuManager : MonoBehaviour
     public void LogIn()
     {
         SceneManager.LoadScene("LogIn");
+        FindObjectOfType<AudioManager>().Play("Text");
     }
 
     public void Register()
     {
         SceneManager.LoadScene("Register");
+        FindObjectOfType<AudioManager>().Play("Text");
     }
 
 }

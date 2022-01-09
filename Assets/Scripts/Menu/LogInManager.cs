@@ -23,27 +23,33 @@ public class LogInManager : MonoBehaviour
 
     public void Back()
     {
+        FindObjectOfType<AudioManager>().Play("Text");
         SceneManager.LoadScene("Menu");
+
     }
 
     public void LogIn()
     {
+        FindObjectOfType<AudioManager>().Play("Text");
         // do the login
         WWWForm form = new WWWForm();
         form.AddField("email", emailInputField.text);
         form.AddField("password", passwordInputField.text);
         Debug.Log("Executing login post");
         StartCoroutine(gameManager.PostForm(specificUri, form, SuccessLogInFallBack, ErrorLogInFallBack));
+        
 
     }
 
     private void SuccessLogInFallBack()
     {
+        FindObjectOfType<AudioManager>().Play("Open");
         SceneManager.LoadScene("Play Menu");
     }
 
     private void ErrorLogInFallBack()
     {
+        FindObjectOfType<AudioManager>().Play("Close");
         emailInputField.text = "";
         passwordInputField.text = "";
         // Error alert

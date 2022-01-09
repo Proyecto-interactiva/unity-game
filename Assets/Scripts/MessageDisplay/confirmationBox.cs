@@ -37,18 +37,20 @@ public class confirmationBox : MonoBehaviour
             answers += item.content + ";";
         }
         Debug.Log(answers);
-        answers = answers.Remove(answers.Length - 1);
+        if (answers.Length > 0) answers = answers.Remove(answers.Length - 1);
         form = new WWWForm();
         form.AddField("answers", answers);
     }
 
     public void Accept()
     {
+        FindObjectOfType<AudioManager>().Play("Text");
         StartCoroutine(gameManager.PostAnswer(form, characterId, Success, Close));
     }
 
     public void Close()
     {
+        FindObjectOfType<AudioManager>().Play("Close");
         gameObject.SetActive(false);
         form = null;
     }
