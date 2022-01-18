@@ -1,9 +1,11 @@
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
+    public bool muted = false;
 
     public Sound[] sounds;
 
@@ -44,5 +46,19 @@ public class AudioManager : MonoBehaviour
         }
         s.source.Play();
         Debug.Log($"Playing: {name}");
+    }
+
+    public void MuteToggle()
+    {
+        if (!muted)
+        {
+            AudioListener.volume = 0;
+        }
+        else
+        {
+            AudioListener.volume = 1;
+
+        }
+        muted = !muted;
     }
 }
