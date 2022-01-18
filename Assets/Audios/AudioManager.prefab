@@ -74,3 +74,6 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  mutedSprite: {fileID: 21300000, guid: f7c9aa72002b1c344a1bf7c8f6e382d7, type: 3}
+  soundSprite: {fileID: 21300000, guid: c204493b56533d741a2e2a5817aea1e9, type: 3}
+  spriteRenderer: {fileID: 0}
