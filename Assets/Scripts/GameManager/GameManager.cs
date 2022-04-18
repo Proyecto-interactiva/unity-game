@@ -9,9 +9,9 @@ public class GameManager : MonoBehaviour
 {
     private string jwt;
     private string userName;
-    private string gameName = "Test9";
+    private string gameName;
     private int stageId = 0;
-    private string generalUri = "https://fractal-interactiva.herokuapp.com/api";
+    private string generalUri = "https://fractal-interactiva.herokuapp.com/api"; // "http://localhost:3000/api"; 
     public GameObject bookPrefab;
 
     private void Awake()
@@ -40,6 +40,34 @@ public class GameManager : MonoBehaviour
                 var playerData = JsonUtility.FromJson<PlayerData>(json);
                 userName = playerData.name;
                 StartCoroutine(Auth(form, FallbackSuccess, FallbackError));
+
+            }
+        }
+    }
+
+    public IEnumerator CheckGame(string uncheckedGameName, Action FallbackSuccess, Action FallbackError)
+    {
+        using (UnityWebRequest www = UnityWebRequest.Get($"{generalUri}/game/checkGame?gameName={uncheckedGameName}"))
+        {
+            Debug.Log("Checking game");
+            www.SetRequestHeader("Authorization", $"Bearer {jwt}");
+            yield return www.SendWebRequest();
+            
+
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log("Error, game not found");
+                Debug.Log(www.error);
+                FallbackError();
+            }
+            else
+            {
+                Debug.Log("Game found!");
+                var json = www.downloadHandler.text;
+                var gameData = JsonUtility.FromJson<GameData>(json);
+                gameName = gameData.gameName;
+                Debug.Log(gameName);
+                FallbackSuccess();
 
             }
         }
@@ -153,7 +181,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator getSave(Action<Save> CallbackSuccess, Action CallbackError)
     {
-        using (UnityWebRequest www = UnityWebRequest.Get($"{generalUri}/game?userName={userName}"))
+        using (UnityWebRequest www = UnityWebRequest.Get($"{generalUri}/game?userName={userName}&gameName={gameName}"))
         {
             Debug.Log("Creating new save");
             www.SetRequestHeader("Authorization", $"Bearer {jwt}");

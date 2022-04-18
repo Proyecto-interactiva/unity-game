@@ -43,9 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e6fe79d54425cf43a4d31024c080f72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  muted: 0
   sounds:
   - name: Theme
-    clip: {fileID: 8300000, guid: 617ae32cfb2674e4997b40823d05b2f5, type: 3}
+    clip: {fileID: 8300000, guid: ca897336dc4d51a4181791dcbb89b574, type: 3}
     volume: 0.5
     pitch: 1
     loop: 1
@@ -74,6 +75,3 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  mutedSprite: {fileID: 21300000, guid: f7c9aa72002b1c344a1bf7c8f6e382d7, type: 3}
-  soundSprite: {fileID: 21300000, guid: c204493b56533d741a2e2a5817aea1e9, type: 3}
-  spriteRenderer: {fileID: 0}
