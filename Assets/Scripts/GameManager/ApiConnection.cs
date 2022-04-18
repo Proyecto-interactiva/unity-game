@@ -28,6 +28,11 @@ public class PlayerData
     public string password;
 }
 
+public class GameData
+{
+    public string gameName;
+}
+
 public class Token
 {
     public string token;
