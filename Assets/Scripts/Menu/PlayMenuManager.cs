@@ -25,7 +25,7 @@ public class PlayMenuManager : MonoBehaviour
 
     public void gameCheckSuccess()
     {
-            StartCoroutine(gameManager.getSave(saveLoadSuccess, saveLoadError));
+        StartCoroutine(gameManager.getSave(saveLoadSuccess, saveLoadError));
     }
 
     public void gameCheckError()
