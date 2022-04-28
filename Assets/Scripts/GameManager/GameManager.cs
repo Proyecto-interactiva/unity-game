@@ -205,12 +205,21 @@ public class GameManager : MonoBehaviour
 
     public void SpawnBooks(List<string> answers)
     {
-        int x = -6;
+        
+        List<(int x, int y)> outerCoords = new List<(int, int)> {
+            (-8, 9), (-6, 9), (-4, 9), (-2, 9), (-0, 9), (2, 9), (4, 9), (6, 9), (8, 9),
+            (11, 9), (11, 11), (11, 13), (11, 15), (11, 17), (11, 19), (11, 21), (11, 23), (11, 25),
+            (11, 27), (-6, 27), (-4, 27), (-2, 27), (-0, 27), (2, 27), (4, 27), (6, 27), (8, 27),
+            (-8, 27), (-8, 11), (-8, 13), (-8, 15), (-8, 17), (-8, 19), (-8, 21), (-8, 23), (-8, 25),
+        };
+        
         int type = 1;
         foreach (string answer in answers)
         {
-            SpawnBook(answer, x, 9, type);
-            x+= 3;
+            int n_coords = outerCoords.Count;
+            int indexChoosen = UnityEngine.Random.Range(0, n_coords - 1);
+            SpawnBook(answer, outerCoords[indexChoosen].x, outerCoords[indexChoosen].y, type);
+            outerCoords.RemoveAt(indexChoosen);
             type++;
             if (type > 5) type = 1;
         }
