@@ -69,6 +69,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -472,6 +473,22 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      sprite_animation_kiyoko_sensei-export_4: -7379862258903767191
+      sprite_animation_kiyoko_sensei-export_6: -3070975387011165532
+      sprite_animation_kiyoko_sensei-export_2: -3842173668541869076
+      sprite_animation_kiyoko_sensei-export_12: 2959407072532553975
+      sprite_animation_kiyoko_sensei-export_9: 5023981713835433805
+      sprite_animation_kiyoko_sensei-export_1: 1912093141112620888
+      sprite_animation_kiyoko_sensei-export_14: -6747022687394584849
+      sprite_animation_kiyoko_sensei-export_10: -3105040597080237151
+      sprite_animation_kiyoko_sensei-export_13: -4076601815909975746
+      sprite_animation_kiyoko_sensei-export_3: -678533211100621895
+      sprite_animation_kiyoko_sensei-export_8: 4305604876263743703
+      sprite_animation_kiyoko_sensei-export_5: 3871191680684751334
+      sprite_animation_kiyoko_sensei-export_11: -8924780583955860900
+      sprite_animation_kiyoko_sensei-export_0: -3285199625263200886
+      sprite_animation_kiyoko_sensei-export_7: -3283419525696604943
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -183,6 +183,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1372,6 +1373,60 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      tiles_wall_small_reduced_52: 1952193461462776721
+      tiles_wall_small_reduced_14: -8610213935253878897
+      tiles_wall_small_reduced_45: 3383464682342707795
+      tiles_wall_small_reduced_34: 3988549194276521207
+      tiles_wall_small_reduced_15: 460061236876998477
+      tiles_wall_small_reduced_9: 9120772790381289908
+      tiles_wall_small_reduced_10: 6363022149917182608
+      tiles_wall_small_reduced_39: 1692435331499437979
+      tiles_wall_small_reduced_44: -8714147655337328119
+      tiles_wall_small_reduced_19: -6938683573849696127
+      tiles_wall_small_reduced_40: 215408302897105665
+      tiles_wall_small_reduced_22: -8097217132135078003
+      tiles_wall_small_reduced_23: -4397285989078133406
+      tiles_wall_small_reduced_42: -8981802058395086823
+      tiles_wall_small_reduced_30: -2487260976349646161
+      tiles_wall_small_reduced_50: -6094560070803987354
+      tiles_wall_small_reduced_2: -1681542270064042570
+      tiles_wall_small_reduced_43: -5153745009148684522
+      tiles_wall_small_reduced_18: -1508499713811404735
+      tiles_wall_small_reduced_1: 3895459484724776416
+      tiles_wall_small_reduced_35: 2892293650261257291
+      tiles_wall_small_reduced_51: 8974099372400049753
+      tiles_wall_small_reduced_48: -4932110274686316829
+      tiles_wall_small_reduced_4: 625078265128122402
+      tiles_wall_small_reduced_27: -4647021219074186667
+      tiles_wall_small_reduced_16: 107082166924173149
+      tiles_wall_small_reduced_20: -5202477455667059678
+      tiles_wall_small_reduced_0: 8274924256789377760
+      tiles_wall_small_reduced_26: -5564382010170287758
+      tiles_wall_small_reduced_32: -7944179283110312384
+      tiles_wall_small_reduced_29: -5656596884217347598
+      tiles_wall_small_reduced_36: 1549940213175684797
+      tiles_wall_small_reduced_46: -3861106384972405750
+      tiles_wall_small_reduced_31: 4769854602257571903
+      tiles_wall_small_reduced_24: 8534936303987678475
+      tiles_wall_small_reduced_28: 3718750631794074936
+      tiles_wall_small_reduced_49: -4102713074009874981
+      tiles_wall_small_reduced_17: -5294655205834927831
+      tiles_wall_small_reduced_6: -5543119179937645439
+      tiles_wall_small_reduced_21: 747805581309173810
+      tiles_wall_small_reduced_12: -1282204236750567863
+      tiles_wall_small_reduced_25: 8214571080178028620
+      tiles_wall_small_reduced_47: 4123317309564534033
+      tiles_wall_small_reduced_5: 3964427428044787281
+      tiles_wall_small_reduced_7: 7190659991606960448
+      tiles_wall_small_reduced_33: -773680024495433000
+      tiles_wall_small_reduced_8: -1285240111566212315
+      tiles_wall_small_reduced_38: -3592072401957742579
+      tiles_wall_small_reduced_41: -5996570975188380100
+      tiles_wall_small_reduced_11: 8875665367774255848
+      tiles_wall_small_reduced_37: -1704950702334510143
+      tiles_wall_small_reduced_3: 7337985189749630273
+      tiles_wall_small_reduced_13: 3197377917469689891
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
