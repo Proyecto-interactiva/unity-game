@@ -5,13 +5,13 @@ using UnityEngine;
 public class Spawn : MonoBehaviour
 {
     public Collider2D activator;
-    private bool spawned = false;
+    // private bool spawned = false; // GABO - no utilizada
 
     private void OnTriggerEnter2D(Collider2D entity)
     {
         if (activator == entity)
         {
-            spawned = true;
+            //spawned = true; // GABO - no utilizada
             transform.Find("CharacterSprite").gameObject.SetActive(true);
             transform.Find("InteractionCanvas").gameObject.SetActive(true);
             FindObjectOfType<AudioManager>().Play("Open");
