@@ -9,6 +9,9 @@ public class RegisterManager : MonoBehaviour
     public GameObject username;
     public GameObject email;
     public GameObject password;
+    [Header("Error Message Settings")]
+    public TMP_Text errorLabel;
+    public string errorMessage = "";
     private TMP_InputField usernameInputField;
     private TMP_InputField emailInputField;
     private TMP_InputField passwordInputField;
@@ -22,6 +25,8 @@ public class RegisterManager : MonoBehaviour
         usernameInputField = username.GetComponent<TMP_InputField>();
         emailInputField = email.GetComponent<TMP_InputField>();
         passwordInputField = password.GetComponent<TMP_InputField>();
+
+        errorLabel.SetText(""); // Empty error field at start
     }
 
     public void Back()
@@ -55,6 +60,8 @@ public class RegisterManager : MonoBehaviour
         usernameInputField.text = "";
         emailInputField.text = "";
         passwordInputField.text = "";
-        // Error alert
+
+        // Error message
+        errorLabel.SetText(errorMessage);
     }
 }

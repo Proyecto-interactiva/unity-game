@@ -7,7 +7,7 @@
   </head>
   <body style="text-align: center">
     <canvas id="unity-canvas" style="width: 100vw; height: 100vh; background: #231F20;"></canvas>
-    <script src="Build/webGL test.loader.js"></script>
+    <script src="Build/docs.loader.js"></script>
     <script>
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
@@ -18,9 +18,9 @@
       }
 
       createUnityInstance(document.querySelector("#unity-canvas"), {
-        dataUrl: "Build/webGL test.data",
-        frameworkUrl: "Build/webGL test.framework.js",
-        codeUrl: "Build/webGL test.wasm",
+        dataUrl: "Build/docs.data",
+        frameworkUrl: "Build/docs.framework.js",
+        codeUrl: "Build/docs.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Interactiva",
         productName: "FirstGame",

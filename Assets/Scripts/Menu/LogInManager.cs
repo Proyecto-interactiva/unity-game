@@ -8,9 +8,14 @@ public class LogInManager : MonoBehaviour
 {
     public GameObject email;
     public GameObject password;
+    [Header("Error Message Settings")]
+    public TMP_Text errorLabel;
+    public string errorMessage = "";
+
     private TMP_InputField emailInputField;
     private TMP_InputField passwordInputField;
     private string specificUri = "/sign/in-user";
+
     GameManager gameManager;
 
     
@@ -19,6 +24,8 @@ public class LogInManager : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
         emailInputField = email.GetComponent<TMP_InputField>();
         passwordInputField = password.GetComponent<TMP_InputField>();
+
+        errorLabel.SetText(""); // Empty error field at start
     }
 
     public void Back()
@@ -52,6 +59,8 @@ public class LogInManager : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("Close");
         emailInputField.text = "";
         passwordInputField.text = "";
-        // Error alert
+
+        // Error message
+        errorLabel.SetText(errorMessage);
     }
 }
