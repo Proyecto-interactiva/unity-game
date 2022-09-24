@@ -33,10 +33,23 @@ public class RegisterManager : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("Text");
         SceneManager.LoadScene("Menu");
-
     }
 
-    public void Register()
+    // Nuevo registro y accedo a menú de código ("Play Menu")
+    public void RegisterAndPlay()
+    {
+        WWWForm form = Register();
+        StartCoroutine(gameManager.PostForm(uri, form, SuccessRegisterFallBackPLAY, ErrorRegisterFallBack));
+    }
+
+    // Nuevo registro y vuelvo a menú inicial (Menu)
+    public void RegisterAndExit()
+    {
+        WWWForm form = Register();
+        StartCoroutine(gameManager.PostForm(uri, form, SuccessRegisterFallBackEXIT, ErrorRegisterFallBack));
+    }
+
+    private WWWForm Register()
     {
         FindObjectOfType<AudioManager>().Play("Text");
         // do the registration
@@ -45,13 +58,18 @@ public class RegisterManager : MonoBehaviour
         form.AddField("email", emailInputField.text);
         form.AddField("password", passwordInputField.text);
         Debug.Log("Executing Register post");
-        StartCoroutine(gameManager.PostForm(uri, form, SuccessRegisterFallBack, ErrorRegisterFallBack));
+        return form;
     }
 
-    private void SuccessRegisterFallBack()
+    private void SuccessRegisterFallBackPLAY()
     {
         FindObjectOfType<AudioManager>().Play("Open");
         SceneManager.LoadScene("Play Menu");
+    }
+    private void SuccessRegisterFallBackEXIT()
+    {
+        FindObjectOfType<AudioManager>().Play("Open");
+        SceneManager.LoadScene("Menu");
     }
 
     private void ErrorRegisterFallBack()
