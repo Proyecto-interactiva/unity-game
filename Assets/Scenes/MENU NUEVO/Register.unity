@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.125, y: 0.6998182}
   m_AnchorMax: {x: 0.8781251, y: 0.72727275}
-  m_AnchoredPosition: {x: -0.52305603, y: 0.97691}
+  m_AnchoredPosition: {x: -0.52305603, y: 0.97691345}
   m_SizeDelta: {x: -1.0462036, y: -1.9537964}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &54388556
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 9.25
+  m_fontSize: 10.1
   m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -440,7 +440,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14.8
+  m_fontSize: 16.8
   m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -741,7 +741,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14.75
+  m_fontSize: 16.8
   m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -946,7 +946,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 9.35
+  m_fontSize: 10
   m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1944,7 +1944,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14.95
+  m_fontSize: 17.05
   m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2149,7 +2149,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 9.3
+  m_fontSize: 10
   m_fontSizeBase: 17
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2385,7 +2385,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 9.25
+  m_fontSize: 10.1
   m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2752,6 +2752,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1534793345}
     m_Modifications:
+    - target: {fileID: 1843301317242453928, guid: 80e331ef346b5a1478cf36d7e4a3a2f9, type: 3}
+      propertyPath: mutedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a6171fb5e0214ed41b687596fe5d5db5, type: 3}
+    - target: {fileID: 1843301317242453928, guid: 80e331ef346b5a1478cf36d7e4a3a2f9, type: 3}
+      propertyPath: unmutedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a2f43b11e91fae044814f63d55b40700, type: 3}
     - target: {fileID: 1843301317242453929, guid: 80e331ef346b5a1478cf36d7e4a3a2f9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3041,7 +3049,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 9.75
+  m_fontSize: 10.5
   m_fontSizeBase: 17
   m_fontWeight: 400
   m_enableAutoSizing: 1
