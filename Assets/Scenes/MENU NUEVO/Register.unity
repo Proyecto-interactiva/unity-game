@@ -851,7 +851,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "CONTRASE\xD1A:"
+  m_text: "REPETIR CONTRASE\xD1A:"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e8e2042b8f985d543b387996f06507d1, type: 2}
   m_sharedMaterial: {fileID: 6343778258235259176, guid: e8e2042b8f985d543b387996f06507d1, type: 2}
@@ -878,7 +878,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16.8
+  m_fontSize: 17
   m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -965,7 +965,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.76875, y: 0.16645455}
   m_AnchorMax: {x: 0.8781251, y: 0.2028182}
-  m_AnchoredPosition: {x: -0.67295074, y: 0.25149536}
+  m_AnchoredPosition: {x: -0.6729584, y: 0.25149536}
   m_SizeDelta: {x: -0.6540985, y: -5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &825802758
@@ -1988,9 +1988,9 @@ GameObject:
   - component: {fileID: 1088986222}
   - component: {fileID: 1088986221}
   - component: {fileID: 1088986220}
-  - component: {fileID: 1088986219}
+  - component: {fileID: 1088986223}
   m_Layer: 5
-  m_Name: InputRepeatPassword
+  m_Name: InputPassword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2012,24 +2012,11 @@ RectTransform:
   m_Father: {fileID: 1534793345}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.125, y: 0.24372728}
-  m_AnchorMax: {x: 0.87500006, y: 0.321}
-  m_AnchoredPosition: {x: 0.00010681152, y: 0.47698975}
+  m_AnchorMin: {x: 0.125, y: 0.35727274}
+  m_AnchorMax: {x: 0.87500006, y: 0.43400002}
+  m_AnchoredPosition: {x: 0, y: -0.060005188}
   m_SizeDelta: {x: 0, y: -4.0000076}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1088986219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1088986217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc33a39070010f94fb1c2dd721c1286d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  showHtmlElement: 0
 --- !u!114 &1088986220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2166,6 +2153,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1088986217}
   m_CullTransparentMesh: 1
+--- !u!114 &1088986223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088986217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc33a39070010f94fb1c2dd721c1286d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showHtmlElement: 0
 --- !u!1 &1139475255
 GameObject:
   m_ObjectHideFlags: 0
@@ -2359,7 +2359,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.40937498, y: 0.17772728}
   m_AnchorMax: {x: 0.57812494, y: 0.2028182}
-  m_AnchoredPosition: {x: -0.34397125, y: -2.2485046}
+  m_AnchoredPosition: {x: -0.34397125, y: -2.2484741}
   m_SizeDelta: {x: 3.3119965, y: 0.000030517578}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1215540869
@@ -2930,7 +2930,7 @@ GameObject:
   - component: {fileID: 1389262792}
   - component: {fileID: 1389262791}
   m_Layer: 5
-  m_Name: RepeatPasswordRevealButton
+  m_Name: PasswordRevealButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2952,10 +2952,10 @@ RectTransform:
   m_Father: {fileID: 1534793345}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.76875, y: 0.2527273}
-  m_AnchorMax: {x: 0.87187505, y: 0.31418183}
-  m_AnchoredPosition: {x: -0.30999756, y: 0.13699341}
-  m_SizeDelta: {x: 0.069000244, y: 0.6441002}
+  m_AnchorMin: {x: 0.76875, y: 0.36400002}
+  m_AnchorMax: {x: 0.87187505, y: 0.42727274}
+  m_AnchoredPosition: {x: -0.30999756, y: 0.099998474}
+  m_SizeDelta: {x: 0.069000244, y: -0.3558998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1389262791
 MonoBehaviour:
@@ -3003,7 +3003,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1930141055}
         m_TargetAssemblyTypeName: RegisterManager, Assembly-CSharp
-        m_MethodName: ToggleRepeatPassword
+        m_MethodName: TogglePassword
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3118,7 +3118,7 @@ GameObject:
   - component: {fileID: 1498617256}
   - component: {fileID: 1498617255}
   m_Layer: 5
-  m_Name: InputPassword
+  m_Name: RepeatInputPassword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3140,10 +3140,10 @@ RectTransform:
   m_Father: {fileID: 1534793345}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.125, y: 0.3617273}
-  m_AnchorMax: {x: 0.87500006, y: 0.42954546}
-  m_AnchoredPosition: {x: 0, y: 0.31698608}
-  m_SizeDelta: {x: 0, y: -0.0000076293945}
+  m_AnchorMin: {x: 0.125, y: 0.24818185}
+  m_AnchorMax: {x: 0.87500006, y: 0.31872728}
+  m_AnchoredPosition: {x: 0, y: 0.3199768}
+  m_SizeDelta: {x: 0, y: -1.0000076}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1498617255
 MonoBehaviour:
@@ -3329,10 +3329,10 @@ RectTransform:
   - {fileID: 1332361128}
   - {fileID: 902728876}
   - {fileID: 861907061}
-  - {fileID: 1498617254}
-  - {fileID: 1890047508}
   - {fileID: 1088986218}
   - {fileID: 1389262790}
+  - {fileID: 1498617254}
+  - {fileID: 1890047508}
   - {fileID: 1662458475}
   - {fileID: 1215540868}
   - {fileID: 825802757}
@@ -3476,7 +3476,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "REPETIR CONTRASE\xD1A:"
+  m_text: "CONTRASE\xD1A:"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e8e2042b8f985d543b387996f06507d1, type: 2}
   m_sharedMaterial: {fileID: 6343778258235259176, guid: e8e2042b8f985d543b387996f06507d1, type: 2}
@@ -3503,7 +3503,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 17
+  m_fontSize: 16.75
   m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4110,7 +4110,7 @@ GameObject:
   - component: {fileID: 1890047510}
   - component: {fileID: 1890047509}
   m_Layer: 5
-  m_Name: PasswordRevealButton
+  m_Name: RepeatPasswordRevealButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4132,10 +4132,10 @@ RectTransform:
   m_Father: {fileID: 1534793345}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.765625, y: 0.36400002}
-  m_AnchorMax: {x: 0.87187505, y: 0.42727274}
-  m_AnchoredPosition: {x: 0.19000244, y: 0.39700317}
-  m_SizeDelta: {x: -0.93099976, y: -0.3558998}
+  m_AnchorMin: {x: 0.76875, y: 0.25045457}
+  m_AnchorMax: {x: 0.87187505, y: 0.31872728}
+  m_AnchoredPosition: {x: -0.30999756, y: -0.099990845}
+  m_SizeDelta: {x: 0.069000244, y: -2.3558998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1890047509
 MonoBehaviour:
@@ -4183,7 +4183,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1930141055}
         m_TargetAssemblyTypeName: RegisterManager, Assembly-CSharp
-        m_MethodName: TogglePassword
+        m_MethodName: ToggleRepeatPassword
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4290,8 +4290,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   username: {fileID: 902728875}
   email: {fileID: 861907060}
-  password: {fileID: 1498617253}
-  repeatPassword: {fileID: 1088986217}
+  password: {fileID: 1088986217}
+  repeatPassword: {fileID: 1498617253}
   errorLabel: {fileID: 1332361126}
   errorMessage: Error al ingresar datos. Revise e intente nuevamente.
   unequalPassWarningMessage: "Las contrase\xF1as deben ser iguales."
