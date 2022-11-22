@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     private string generalUri = "https://fractal-interactiva.herokuapp.com/api"; // "http://localhost:3000/api"; 
     public GameObject bookPrefab;
 
+    [NonSerialized]
+    public string lastSceneBeforeTrailer = ""; // Tag de escena previa al trailer, para determinar escena posterior
+
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);

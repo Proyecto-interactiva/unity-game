@@ -1,18 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 
 public class TrailerManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public VideoPlayer videoPlayer; // VideoPlayer del trailer
+    private GameManager gameManager;
+    private AudioManager audioManager;
+
+    
     void Start()
     {
-        
+        gameManager = FindObjectOfType<GameManager>();
+        audioManager = FindObjectOfType<AudioManager>();
+        audioManager.MuteToggle(); // Se mutea música de fondo al comenzar trailer
+
+        videoPlayer.loopPointReached += loadNextSceneAfterVideoEnds; // Al terminar video, cambiar de escena
     }
 
-    // Update is called once per frame
-    void Update()
+    // Ejecutada cuando termina video
+    public void loadNextSceneAfterVideoEnds(VideoPlayer vp)
     {
-        
+        loadNextSceneBasedOnLast();
+    }
+
+    // Determina siguiente escena basado en escena previa
+    public void loadNextSceneBasedOnLast()
+    {
+        audioManager.MuteToggle(); // Se desmutea música de fondo al terminar trailer
+        FindObjectOfType<AudioManager>().Play("Open");
+
+        if (gameManager.lastSceneBeforeTrailer == "Register")
+        {
+            SceneManager.LoadScene("MainScene");
+        }
+        else
+        {
+            SceneManager.LoadScene("Menu"); // Por ahora, si NO se accedió desde el registro, se vuelve al principio
+        }
     }
 }
