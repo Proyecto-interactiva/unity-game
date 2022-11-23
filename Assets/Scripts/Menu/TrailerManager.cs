@@ -18,6 +18,11 @@ public class TrailerManager : MonoBehaviour
         audioManager.MuteToggle(); // Se mutea música de fondo al comenzar trailer
 
         videoPlayer.loopPointReached += loadNextSceneAfterVideoEnds; // Al terminar video, cambiar de escena
+
+        // Asignar url del video y reproducir
+        videoPlayer.source = VideoSource.Url;
+        videoPlayer.url = Application.streamingAssetsPath + "/Trailer_Eduju.mp4"; // Video está en 'Assets/StreamingAssets'
+        videoPlayer.Play();
     }
 
     // Ejecutada cuando termina video
