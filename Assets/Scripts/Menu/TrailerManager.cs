@@ -15,7 +15,7 @@ public class TrailerManager : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
         audioManager = FindObjectOfType<AudioManager>();
-        audioManager.MuteToggle(); // Se mutea música de fondo al comenzar trailer
+        audioManager.SetMute(true); // Se mutea música de fondo al comenzar trailer
 
         videoPlayer.loopPointReached += loadNextSceneAfterVideoEnds; // Al terminar video, cambiar de escena
 
@@ -34,7 +34,7 @@ public class TrailerManager : MonoBehaviour
     // Determina siguiente escena basado en escena previa
     public void loadNextSceneBasedOnLast()
     {
-        audioManager.MuteToggle(); // Se desmutea música de fondo al terminar trailer
+        audioManager.SetMute(false); // Se desmutea música de fondo al terminar trailer
         FindObjectOfType<AudioManager>().Play("Open");
 
         if (gameManager.lastSceneBeforeTrailer == "Register")

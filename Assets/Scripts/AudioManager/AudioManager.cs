@@ -61,4 +61,10 @@ public class AudioManager : MonoBehaviour
         }
         muted = !muted;
     }
+
+    public void SetMute(bool activate)
+    {
+        if (activate) { AudioListener.volume = 0; muted = true; }
+        else if (!activate) { AudioListener.volume = 1; muted = false; }
+    }
 }
