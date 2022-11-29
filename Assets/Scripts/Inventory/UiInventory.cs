@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UiInventory : MonoBehaviour
 {
+    public UIPauseMenu menu;
     private Inventory inventory;
     private Transform itemSlotContainer; // Grid Layout Group que contiene los libros
     private Transform itemSlotTemplate;
@@ -42,6 +43,21 @@ public class UiInventory : MonoBehaviour
             image.sprite = item.GetSprite();
             Button button = itemSlotRectTransform.Find("DropButton").GetComponent<Button>();
             button.onClick.AddListener(delegate { inventory.RemoveItem(item); });
+        }
+    }
+
+    // Abre y cierra el UIPauseMenu
+    public void TogglePauseMenu()
+    {
+        if (menu.gameObject.activeInHierarchy)
+        {
+            FindObjectOfType<AudioManager>().Play("Close");
+            menu.gameObject.SetActive(false);
+        }
+        else 
+        {
+            FindObjectOfType<AudioManager>().Play("Open");
+            menu.gameObject.SetActive(true);
         }
     }
 
