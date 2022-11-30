@@ -5,7 +5,13 @@ using UnityEngine.UI;
 
 public class UiInventory : MonoBehaviour
 {
-    public UIPauseMenu menu;
+    [Header("Menus")]
+    public UIPauseMenu pauseMenu;
+    public UIHelpMenu helpMenu;
+    public UICredits credits;
+    public UIExitWarning exitWarning;
+
+    [Header("")]
     private Inventory inventory;
     private Transform itemSlotContainer; // Grid Layout Group que contiene los libros
     private Transform itemSlotTemplate;
@@ -49,15 +55,41 @@ public class UiInventory : MonoBehaviour
     // Abre y cierra el UIPauseMenu
     public void TogglePauseMenu()
     {
-        if (menu.gameObject.activeInHierarchy)
+        if (pauseMenu.gameObject.activeInHierarchy)
         {
+            // Desactivar
             FindObjectOfType<AudioManager>().Play("Close");
-            menu.gameObject.SetActive(false);
+            pauseMenu.gameObject.SetActive(false);
         }
         else 
         {
+            // Desactivar otros menús
+            helpMenu.gameObject.SetActive(false);
+            exitWarning.gameObject.SetActive(false);
+            credits.gameObject.SetActive(false);
+
+            // Activar
             FindObjectOfType<AudioManager>().Play("Open");
-            menu.gameObject.SetActive(true);
+            pauseMenu.gameObject.SetActive(true);
+        }
+    }
+
+    public void ToggleHelpMenu()
+    {
+        if (helpMenu.gameObject.activeInHierarchy)
+        {
+            FindObjectOfType<AudioManager>().Play("Close");
+            helpMenu.gameObject.SetActive(false);
+        }
+        else
+        {
+            // Desactivar otros menús
+            pauseMenu.gameObject.SetActive(false);
+            exitWarning.gameObject.SetActive(false);
+            credits.gameObject.SetActive(false);
+
+            FindObjectOfType<AudioManager>().Play("Open");
+            helpMenu.gameObject.SetActive(true);
         }
     }
 
