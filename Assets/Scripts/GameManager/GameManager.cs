@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     private string userName;
     private string gameName;
     private int stageId = 0;
-    private string generalUri = "https://fractal-interactiva.herokuapp.com/api"; // "http://localhost:3000/api"; 
+    private string generalUri = "https://eduju-backend.onrender.com/api"; // https://fractal-interactiva.herokuapp.com/api // "http://localhost:3000/api"; 
     public GameObject bookPrefab;
 
     [NonSerialized]
