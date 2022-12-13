@@ -39,7 +39,7 @@ public class TrailerManager : MonoBehaviour
 
         if (gameManager.lastSceneBeforeTrailer == "Register")
         {
-            SceneManager.LoadScene("MainScene");
+            SceneManager.LoadScene("Play Menu");
         }
         else
         {
