@@ -36,8 +36,11 @@ public class Movement : MonoBehaviour
         horizontal = new Vector3(Input.GetAxisRaw("Horizontal"), 0.0f, 0.0f);
         vertical = new Vector3(0.0f, Input.GetAxisRaw("Vertical"), 0.0f);
 
-        if (horizontal == Vector3.zero) horizontal = new Vector3(joystick.Horizontal, 0.0f, 0.0f);
-        if (vertical == Vector3.zero) vertical = new Vector3(0.0f, joystick.Vertical, 0.0f);
+        if (joystick.isActiveAndEnabled)
+        {
+            if (horizontal == Vector3.zero) horizontal = new Vector3(joystick.Horizontal, 0.0f, 0.0f);
+            if (vertical == Vector3.zero) vertical = new Vector3(0.0f, joystick.Vertical, 0.0f);
+        }
 
         // Direction logic
         if (horizontal != new Vector3() && vertical == new Vector3())

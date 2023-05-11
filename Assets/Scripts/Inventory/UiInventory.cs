@@ -10,6 +10,8 @@ public class UiInventory : MonoBehaviour
     public UIHelpMenu helpMenu;
     public UICredits credits;
     public UIExitWarning exitWarning;
+    [Header("Menus")]
+    public Joystick joystick;
 
     [Header("")]
     private Inventory inventory;
@@ -90,6 +92,13 @@ public class UiInventory : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("Open");
             helpMenu.gameObject.SetActive(true);
         }
+    }
+
+    // Activa y desactiva el Joystick
+    public void ToggleJoystickButton()
+    {
+        if (joystick.isActiveAndEnabled) { joystick.gameObject.SetActive(false); }
+        else { joystick.gameObject.SetActive(true); }
     }
 
 }
